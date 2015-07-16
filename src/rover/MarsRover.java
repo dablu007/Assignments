@@ -1,5 +1,8 @@
 package rover;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by dabluk on 16/07/15.
  */
@@ -9,7 +12,7 @@ public class MarsRover {
     private int plateauPositionX;
     private int plateauPositionY;
     private String direction;
-
+    private static final List<String> DIRECTIONS = Arrays.asList("N", "E", "S", "W");
     public MarsRover(int X, int Y, int plateauX, int plateauY, String dir) {
         plateauPositionX = plateauY;
         plateauPositionY = plateauX;
@@ -31,24 +34,16 @@ public class MarsRover {
     }
 
     public void changeDirection(String input) {
-        if (direction.equals("N") && input.equals("L"))
-            direction = "W";
-        else if (direction.equals("N") && input.equals("R"))
-            direction = "E";
-        else if (direction.equals("E") && input.equals("L"))
-            direction = "N";
-        else if (direction.equals("E") && input.equals("R"))
-            direction = "S";
-        else if (direction.equals("S") && input.equals("L"))
-            direction = "E";
-        else if (direction.equals("S") && input.equals("R"))
-            direction = "W";
-        else if (direction.equals("W") && input.equals("L"))
-            direction = "S";
-        else if (direction.equals("W") && input.equals("R"))
-            direction = "N";
-    }
+        int value;
+        if (input.equals("L"))
+            value = 1;
+        value = 3;
+        turnDirection(value);
 
+    }
+    public void turnDirection(int value){
+        direction = DIRECTIONS.get((DIRECTIONS.indexOf(direction) + value) % DIRECTIONS.size());
+    }
     public void moveRover(String input) {
 
         if (direction.equals("N") && input.equals("M") && positionY < plateauPositionY)
@@ -65,7 +60,8 @@ public class MarsRover {
             if ( input.charAt(i) == "M".charAt(0)) {
                 moveRover("M");
             }
-            changeDirection(Character.toString(input.charAt(i)));
+            else
+                changeDirection(Character.toString(input.charAt(i)));
         }
     }
 }

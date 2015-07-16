@@ -1,6 +1,6 @@
 package test;
 
-import controller.MarsRover;
+import rover.MarsRover;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -63,8 +63,8 @@ public class TestMarsRover {
         String input = "LMLMLMLMM";
 
         marsRover.moveInPlateau(input);
-        assertEquals(1,marsRover.getPositionX());
-        assertEquals(3,marsRover.getPositionY());
+        assertEquals(1, marsRover.getPositionX());
+        assertEquals(3, marsRover.getPositionY());
         assertEquals("N",marsRover.getDirection());
     }
 

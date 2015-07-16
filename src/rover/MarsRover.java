@@ -1,4 +1,4 @@
-package controller;
+package rover;
 
 /**
  * Created by dabluk on 16/07/15.

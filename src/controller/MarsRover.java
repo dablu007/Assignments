@@ -60,4 +60,12 @@ public class MarsRover {
         else if (direction.equals("S") && input.equals("M"))
             positionY += -1;
     }
+    public void moveInPlateau(String input){
+        for (int i = 0; i < input.length(); i++) {
+            if ( input.charAt(i) == "M".charAt(0)) {
+                moveRover("M");
+            }
+            changeDirection(Character.toString(input.charAt(i)));
+        }
+    }
 }

@@ -62,12 +62,7 @@ public class TestMarsRover {
         marsRover = new MarsRover(1,2,plateauPositionX,plateauPositionY,direction);
         String input = "LMLMLMLMM";
 
-        for (int i = 0; i < input.length(); i++) {
-            if ( input.charAt(i) == "M".charAt(0)) {
-                marsRover.moveRover("M");
-            }
-            marsRover.changeDirection(Character.toString(input.charAt(i)));
-        }
+        marsRover.moveInPlateau(input);
         assertEquals(1,marsRover.getPositionX());
         assertEquals(3,marsRover.getPositionY());
         assertEquals("N",marsRover.getDirection());

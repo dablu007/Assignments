@@ -10,12 +10,12 @@ public class MarsRover {
     private int plateauPositionY;
     private String direction;
 
-    public MarsRover(int X, int Y, int plateauPositionX, int plateauPositionY, String direction) {
-        this.plateauPositionX = plateauPositionX;
-        this.plateauPositionY = plateauPositionY;
-        this.direction = direction;
-        this.positionX = X;
-        this.positionY = Y;
+    public MarsRover(int X, int Y, int plateauX, int plateauY, String dir) {
+        plateauPositionX = plateauY;
+        plateauPositionY = plateauX;
+        direction = dir;
+        positionX = X;
+        positionY = Y;
     }
 
     public String getDirection(){
@@ -52,12 +52,12 @@ public class MarsRover {
     public void moveRover(String input) {
 
         if (direction.equals("N") && input.equals("M") && positionY < plateauPositionY)
-            this.positionY += 1;
+            positionY += 1;
         else if (direction.equals("E") && input.equals("M") && positionX < plateauPositionX)
-            this.positionX += 1;
+            positionX += 1;
         else if (direction.equals("W") && input.equals("M"))
-            this.positionX += -1;
+            positionX += -1;
         else if (direction.equals("S") && input.equals("M"))
-            this.positionY += -1;
+            positionY += -1;
     }
 }
